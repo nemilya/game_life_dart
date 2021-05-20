@@ -22,3 +22,10 @@ Cell
 ----
 
 - `self.next_generation(cell_state, neighbors_cnt)`
+
+Testing
+-------
+
+    sudo apt install inotify-tools
+    inotifywait -m -e CLOSE_WRITE ./lib ./test | xargs -n1 -I{} dart test
+
