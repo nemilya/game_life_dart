@@ -17,10 +17,11 @@ Game
 World
 -----
 
-- `parse(ascii_map)`
-- `rows, cols`
-- `set_cell(row, col, cell_state)`
+- `init(rows, cols)`
+- `rowsCnt(), colsCnt()`
 - `get_cell_at(row, col)` 
+- `set_cell(row, col, cell_state)`
+- `parse(ascii_map)`
 - `neighbors_cnt_at(row, col)`
 - `as_ascii()`
 
