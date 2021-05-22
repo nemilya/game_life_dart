@@ -29,20 +29,20 @@ class World {
   }
 
   void parse(String ascii_map){
-   var rows = ascii_map.split("\n");
-   var _rows_cnt = rows.length;
-   var _cols_cnt = rows[0].split('').length;
-   init(rows: _rows_cnt, cols: _cols_cnt);
-   var r = 0;
-   for (var row in rows){
-     var elements = row.split('');
-     var c = 0;
-     for (var cell_state in elements){
-       set_cell(r, c, cell_state);
-       c += 1;
-     };
-     r += 1;
-   } 
+    var rows = ascii_map.split("\n");
+    var _rows_cnt = rows.length;
+    var _cols_cnt = rows[0].split('').length;
+    init(rows: _rows_cnt, cols: _cols_cnt);
+    var r = 0;
+    for (var row in rows){
+      var elements = row.split('');
+      var c = 0;
+      for (var cell_state in elements){
+        set_cell(r, c, cell_state);
+        c += 1;
+      };
+      r += 1;
+    } 
   }
 
   int neighbors_cnt_at(int row, int col){
