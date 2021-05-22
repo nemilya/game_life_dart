@@ -59,4 +59,16 @@ class World {
     }; // for delta_r
     return n_cnt;
   }
+
+  String as_ascii(){
+    List<String> lines = [];
+    for (var r = 0; r < rows_cnt; r++){
+      String line = '';
+      for (var c = 0; c < cols_cnt; c++){
+        line += get_cell_at(r, c);
+      };
+      lines.add(line);
+    };
+    return lines.join("\n");
+  }
 }

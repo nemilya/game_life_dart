@@ -54,4 +54,12 @@ void main() {
     expect(world.neighbors_cnt_at(1, 1), 5);
     expect(world.neighbors_cnt_at(2, 2), 2);
   });
+
+  test('as_ascii', () {
+    var ascii_map = "..*\n"
+                    "..*\n"
+                    "***";
+    world.parse(ascii_map);
+    expect(world.as_ascii(), ascii_map);
+  });
 }
