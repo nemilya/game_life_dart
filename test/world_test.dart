@@ -19,9 +19,12 @@ void main() {
 
   test('get_cell_at', () {
     expect(world.get_cell_at(0, 0), Cell.EMPTY);
-    // out range
-    expect(world.get_cell_at(3, 0), Cell.EMPTY);
-    expect(world.get_cell_at(0, 4), Cell.EMPTY);
+    // out of range
+    expect(world.get_cell_at( 3,  0), Cell.EMPTY);
+    expect(world.get_cell_at( 0,  4), Cell.EMPTY);
+    expect(world.get_cell_at(-1,  0), Cell.EMPTY);
+    expect(world.get_cell_at( 1, -1), Cell.EMPTY);
+ 
   });
 
   test('set_cell', () {
@@ -39,5 +42,16 @@ void main() {
     expect(world.colsCnt(), 3);
     expect(world.get_cell_at(0, 0), Cell.EMPTY);
     expect(world.get_cell_at(3, 0), Cell.LIFE);
+  });
+
+  test('neighbors_cnt_at', () {
+    var ascii_map = "..*\n"
+                    "..*\n"
+                    "***";
+    world.parse(ascii_map);
+    expect(world.neighbors_cnt_at(0, 0), 0);
+    expect(world.neighbors_cnt_at(0, 1), 2);
+    expect(world.neighbors_cnt_at(1, 1), 5);
+    expect(world.neighbors_cnt_at(2, 2), 2);
   });
 }

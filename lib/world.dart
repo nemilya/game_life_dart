@@ -19,7 +19,7 @@ class World {
 
   String get_cell_at(int row, int col){
     // test for out of range
-    if (row > rows_cnt-1 || col > cols_cnt-1) return Cell.EMPTY;
+    if (row > rows_cnt-1 || col > cols_cnt-1 || row < 0 || col < 0) return Cell.EMPTY;
 
     return cells[row][col]; 
   }
@@ -43,5 +43,20 @@ class World {
      };
      r += 1;
    } 
+  }
+
+  int neighbors_cnt_at(int row, int col){
+    int n_cnt = 0;
+    for (var delta_r in [-1, 0, 1]){
+      for (var delta_c in [-1, 0, 1]){
+        if (delta_r == 0 && delta_c == 0){
+          continue;
+        };
+        if (get_cell_at(row+delta_r, col+delta_c) == Cell.LIFE){
+          n_cnt += 1;
+        };
+      }; // for delta_c
+    }; // for delta_r
+    return n_cnt;
   }
 }
