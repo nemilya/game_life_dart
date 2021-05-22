@@ -27,4 +27,21 @@ class World {
   void set_cell(int row, int col, String cell_state){
     cells[row][col] = cell_state;
   }
+
+  void parse(String ascii_map){
+   var rows = ascii_map.split("\n");
+   var _rows_cnt = rows.length;
+   var _cols_cnt = rows[0].split('').length;
+   init(rows: _rows_cnt, cols: _cols_cnt);
+   var r = 0;
+   for (var row in rows){
+     var elements = row.split('');
+     var c = 0;
+     for (var cell_state in elements){
+       set_cell(r, c, cell_state);
+       c += 1;
+     };
+     r += 1;
+   } 
+  }
 }
