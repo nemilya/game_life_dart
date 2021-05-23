@@ -28,7 +28,7 @@ World
 Cell
 ----
 
-- `self.next_generation(cell_state, neighbors_cnt)`
+- `self.next_generation_state(cell_state, neighbors_cnt)`
 
 Testing
 -------
