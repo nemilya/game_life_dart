@@ -1,16 +1,16 @@
 import 'package:game_life_dart/cell.dart';
 
 class World {
-  int rows_cnt;
-  int cols_cnt;
-  List<List<String>> cells;
+  late int rows_cnt;
+  late int cols_cnt;
+  late List<List<String>> cells;
 
-  void init({int rows, int cols}){
+  void init({required int rows, required int cols}){
     cells = [];
     rows_cnt = rows;
     cols_cnt = cols;
-    for(int row = 0; row < rows; row++){
-      cells.add(List.filled(cols, Cell.EMPTY));
+    for(int r = 0; r < rows_cnt; r++){
+      cells.add(List.filled(cols_cnt, Cell.EMPTY));
     }
   }
     
@@ -29,9 +29,9 @@ class World {
   }
 
   void parse(String ascii_map){
-    var rows = ascii_map.split("\n");
-    var _rows_cnt = rows.length;
-    var _cols_cnt = rows[0].split('').length;
+    List<String> rows = ascii_map.split("\n");
+    int _rows_cnt = rows.length;
+    int _cols_cnt = rows[0].split('').length;
     init(rows: _rows_cnt, cols: _cols_cnt);
     var r = 0;
     for (var row in rows){

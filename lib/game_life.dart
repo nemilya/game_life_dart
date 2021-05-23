@@ -2,7 +2,7 @@ import 'package:game_life_dart/world.dart';
 import 'package:game_life_dart/cell.dart';
 
 class GameLife{
-  World generation;
+  late World generation;
 
   GameLife(){
     generation = new World();

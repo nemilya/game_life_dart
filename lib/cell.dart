@@ -16,5 +16,6 @@ class Cell{
           (neighbors_cnt == 3 || neighbors_cnt == 2) ? 
             Cell.LIFE : Cell.EMPTY; 
     }
+    return ''; // for null safety
   }
 }

@@ -5,7 +5,7 @@ import 'package:game_life_dart/cell.dart';
 
 void main() {
 
-  World world;
+  late World world;
 
   setUp((){
     world = new World();
