@@ -5,34 +5,48 @@ import 'package:game_life_dart/cell.dart';
 void main() {
 
   test('Consts', () {
-    expect(Cell.EMPTY, '.');
-    expect(Cell.LIFE,  '*');
+    expect(Cell.ASCII_EMPTY, '.');
+    expect(Cell.ASCII_LIFE,  '*');
   }); 
 
+  test('ascii_to_cell_state', () {
+    expect(Cell.ascii_to_cell_state(Cell.ASCII_EMPTY), CellState.empty);
+    expect(Cell.ascii_to_cell_state(Cell.ASCII_LIFE),  CellState.life);
+  });
+
+  test('cell_state_to_ascii', () {
+    expect(Cell.cell_state_to_ascii(CellState.empty), Cell.ASCII_EMPTY);
+    expect(Cell.cell_state_to_ascii(CellState.life),  Cell.ASCII_LIFE);
+  });
+
   test('next_generation_state for EMPTY cell', (){
-    //                                            neighbors_cnt
-    expect(Cell.next_generation_state(Cell.EMPTY, 0), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.EMPTY, 1), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.EMPTY, 2), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.EMPTY, 3), Cell.LIFE);
-    expect(Cell.next_generation_state(Cell.EMPTY, 4), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.EMPTY, 5), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.EMPTY, 6), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.EMPTY, 7), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.EMPTY, 8), Cell.EMPTY);
+    //                                                 neighbors_cnt
+    expect(Cell.next_generation_state(CellState.empty, 0), CellState.empty);
+    expect(Cell.next_generation_state(CellState.empty, 1), CellState.empty);
+    expect(Cell.next_generation_state(CellState.empty, 2), CellState.empty);
+
+    expect(Cell.next_generation_state(CellState.empty, 3), CellState.life);
+
+    expect(Cell.next_generation_state(CellState.empty, 4), CellState.empty);
+    expect(Cell.next_generation_state(CellState.empty, 5), CellState.empty);
+    expect(Cell.next_generation_state(CellState.empty, 6), CellState.empty);
+    expect(Cell.next_generation_state(CellState.empty, 7), CellState.empty);
+    expect(Cell.next_generation_state(CellState.empty, 8), CellState.empty);
   });
   
   test('next_generation_state for LIFE cell', (){
-    //                                           neighbors_cnt
-    expect(Cell.next_generation_state(Cell.LIFE, 0), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.LIFE, 1), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.LIFE, 2), Cell.LIFE);
-    expect(Cell.next_generation_state(Cell.LIFE, 3), Cell.LIFE);
-    expect(Cell.next_generation_state(Cell.LIFE, 4), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.LIFE, 5), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.LIFE, 6), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.LIFE, 7), Cell.EMPTY);
-    expect(Cell.next_generation_state(Cell.LIFE, 8), Cell.EMPTY);
+    //                                                neighbors_cnt
+    expect(Cell.next_generation_state(CellState.life, 0), CellState.empty);
+    expect(Cell.next_generation_state(CellState.life, 1), CellState.empty);
+
+    expect(Cell.next_generation_state(CellState.life, 2), CellState.life);
+    expect(Cell.next_generation_state(CellState.life, 3), CellState.life);
+
+    expect(Cell.next_generation_state(CellState.life, 4), CellState.empty);
+    expect(Cell.next_generation_state(CellState.life, 5), CellState.empty);
+    expect(Cell.next_generation_state(CellState.life, 6), CellState.empty);
+    expect(Cell.next_generation_state(CellState.life, 7), CellState.empty);
+    expect(Cell.next_generation_state(CellState.life, 8), CellState.empty);
   });
 }
 

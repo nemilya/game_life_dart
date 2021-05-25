@@ -18,18 +18,18 @@ void main() {
   });
 
   test('get_cell_at', () {
-    expect(world.get_cell_at(0, 0), Cell.EMPTY);
+    expect(world.get_cell_at(0, 0), CellState.empty);
     // out of range
-    expect(world.get_cell_at( 3,  0), Cell.EMPTY);
-    expect(world.get_cell_at( 0,  4), Cell.EMPTY);
-    expect(world.get_cell_at(-1,  0), Cell.EMPTY);
-    expect(world.get_cell_at( 1, -1), Cell.EMPTY);
+    expect(world.get_cell_at( 3,  0), CellState.empty);
+    expect(world.get_cell_at( 0,  4), CellState.empty);
+    expect(world.get_cell_at(-1,  0), CellState.empty);
+    expect(world.get_cell_at( 1, -1), CellState.empty);
  
   });
 
   test('set_cell', () {
-    world.set_cell(0, 0, Cell.LIFE);
-    expect(world.get_cell_at(0, 0), Cell.LIFE);
+    world.set_cell(0, 0, CellState.life);
+    expect(world.get_cell_at(0, 0), CellState.life);
   });
 
   test('parse', () {
@@ -40,8 +40,8 @@ void main() {
     world.parse(ascii_map);
     expect(world.rowsCnt(), 4);
     expect(world.colsCnt(), 3);
-    expect(world.get_cell_at(0, 0), Cell.EMPTY);
-    expect(world.get_cell_at(3, 0), Cell.LIFE);
+    expect(world.get_cell_at(0, 0), CellState.empty);
+    expect(world.get_cell_at(3, 0), CellState.life);
   });
 
   test('neighbors_cnt_at', () {
