@@ -1,6 +1,8 @@
 Game Life by Dart
 =================
 
+OOA/OOP, TDD.
+
 Conway's Game of Life
 
 - Any live cell with two or three live neighbours survives.
@@ -28,6 +30,9 @@ World
 Cell
 ----
 
+- `enum CellState`
+- `self.ascii_to_cell_state(string)`
+- `self.cell_state_to_ascii(cell_state)`
 - `self.next_generation_state(cell_state, neighbors_cnt)`
 
 Testing
