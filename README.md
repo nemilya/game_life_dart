@@ -12,28 +12,28 @@ Conway's Game of Life
 Game
 ----
 
-- `set_world(ascii_map)`
+- `setWorld(asciiMap)`
 - `step()`
-- `get_world_as_acsii()` 
+- `getWorldAsAcsii()` 
 
 World
 -----
 
 - `init(rows, cols)`
-- `rowsCnt(), colsCnt()`
-- `get_cell_at(row, col)` 
-- `set_cell(row, col, cell_state)`
-- `parse(ascii_map)`
-- `neighbors_cnt_at(row, col)`
-- `as_ascii()`
+- `rowsCnt, colsCnt`
+- `getCellAt(row, col)` 
+- `setCell(row, col, cellState)`
+- `parse(asciiMap)`
+- `neighborsCntAt(row, col)`
+- `asAscii()`
 
 Cell
 ----
 
 - `enum CellState`
-- `self.ascii_to_cell_state(string)`
-- `self.cell_state_to_ascii(cell_state)`
-- `self.next_generation_state(cell_state, neighbors_cnt)`
+- `self.asciiToCellState(string)`
+- `self.cellStateToAscii(cellState)`
+- `self.nextGenerationState(cellState, neighborsCnt)`
 
 Testing
 -------
