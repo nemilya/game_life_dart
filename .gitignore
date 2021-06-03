@@ -2,3 +2,4 @@
 .packages
 build/
 tmux-test.sh
+pubspec.lock
